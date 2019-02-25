@@ -4,6 +4,7 @@
 	    play = document.querySelector('#playButton'),
 	    pause = document.querySelector('#pauseButton')
 	    rewind = document.querySelector('#rewindButton');
+	    tracks = document.querySelectorAll('.trackholder');
 
 // write the functions for the audio element 
 function playAudio(){
@@ -16,6 +17,14 @@ function pauseAudio(){
 
 function rewindAudio(){
 	aud.currentTime = 0;
+}
+
+function swapSource(){
+	aud.currentTrack = this.dataset.currenttrack;
+
+	aud.src = `audio/${currentTrack}`;
+	aud.load();
+	aud.play();
 }
 
 // add event handling
